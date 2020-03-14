@@ -8,12 +8,7 @@
         background-position: center;
         background-size: cover;
         
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-                    
+                            
     }
     /* 자식선택자: mytitle 바로 아래 있는 h1 태그,  위 오른쪽 아래 왼쪽 순서  */
     .mytitle > h1 {
@@ -27,5 +22,5 @@
 
     .wrap {
         width :300px;
-        margin: 50px auto 0 auto;
+        margin: 50px auto 0 auto ;
     }
