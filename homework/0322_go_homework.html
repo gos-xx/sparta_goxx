@@ -84,9 +84,26 @@
             
         }
     </style>
-
     <script>
+        var phonenumber = /(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/ ;
+        function numbertest(){
+            if ( !phonenumber.test( $('#input-phone').val() ) ) {
+
+                $('#option_phone').append("잘못된 휴대폰 번호입니다. 숫자, - 를 포함한 숫자만 입력하세요.");
+                $('#option_phone').css('color','red');
+            // alert("잘못된 휴대폰 번호입니다. 숫자, - 를 포함한 숫자만 입력하세요.");
+
+            return false
+
+            }
+        }
         
+        function ordertest(){
+            if( $('#input-phone').val() == "" || $('#input-name').val() == ""){
+                alert("잘못된 휴대폰 번호입니다. 숫자, - 를 포함한 숫자만 입력하세요.");
+        }
+        }
+
 
     </script>
 </head>
@@ -133,15 +150,17 @@
 
                 
             </div>
-
             <div class="product-Option"> 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon1">전화번호</span>
+                      <span class="input-group-text" id="basic-addon1">주문자 성함</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="전화번호" aria-label="전화번호" aria-describedby="basic-addon1">
+                    <input id="input-name"type="text" class="form-control" placeholder="주문자 성함" aria-label="주문자 성함" aria-describedby="basic-addon1">
                 </div>
             </div>
+
+            
+            
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="inputGroupSelect01">색상</label>
@@ -168,6 +187,7 @@
                   <option value="3">3</option>
                 </select>
             </div>
+           
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1">주소</span>
@@ -177,18 +197,20 @@
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
                   </div>
             </div>
-            <div class="product-Option"> 
+
+            <div class="product-Option" id='option_phone'> 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1">전화번호</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="전화번호" aria-label="전화번호" aria-describedby="basic-addon1">
+                    <input type="text" id="input-phone" class="form-control" placeholder="전화번호" aria-label="전화번호" aria-describedby="basic-addon1" onblur="numbertest()">
                 </div>
             </div>
+           
             
         </div>
         <div class="order">
-            <button type="button" class="btn btn-secondary">주문하기</button>
+            <button onclick='ordertest()' type="button" class="btn btn-secondary">주문하기</button>
         </div>
     </div>
     
